@@ -1,0 +1,4 @@
+project_id = "fckvwhsfabjfnjvarczk"
+
+[functions.exam-buddy]
+verify_jwt = false
