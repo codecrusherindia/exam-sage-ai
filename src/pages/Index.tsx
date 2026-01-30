@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BookOpen, Sparkles, GraduationCap, RefreshCw } from "lucide-react";
+import { BookOpen, Sparkles, GraduationCap, RefreshCw, Lightbulb, FileText, PenTool, ToggleLeft } from "lucide-react";
 import { QuestionInput } from "@/components/QuestionInput";
 import { ModeToggle } from "@/components/ModeToggle";
 import { SubjectBadge } from "@/components/SubjectBadge";
@@ -9,10 +9,33 @@ import { useExamBuddy } from "@/hooks/useExamBuddy";
 import { useToast } from "@/hooks/use-toast";
 
 const EXAMPLE_QUESTIONS = [
-  "Explain the difference between stack and queue with examples",
+  "Explain Newton's laws of motion with examples",
   "What is normalization in DBMS? Explain up to 3NF",
-  "Write a C program to reverse a linked list",
-  "Explain process scheduling algorithms with diagrams",
+  "Explain the difference between stack and queue",
+  "Describe the process of photosynthesis",
+];
+
+const FEATURES = [
+  {
+    icon: Lightbulb,
+    title: "Step-by-Step Explanations",
+    description: "Get clear, structured explanations for any concept across all subjects."
+  },
+  {
+    icon: FileText,
+    title: "Exam-Oriented Answers",
+    description: "Answers formatted exactly how examiners expect - with proper headings and points."
+  },
+  {
+    icon: PenTool,
+    title: "Diagram Support",
+    description: "ASCII diagrams and visual representations to help you understand better."
+  },
+  {
+    icon: ToggleLeft,
+    title: "Flexible Modes",
+    description: "Switch between detailed exam answers and simple easy-to-understand explanations."
+  }
 ];
 
 export default function Index() {
@@ -55,7 +78,7 @@ export default function Index() {
                   Exam Buddy AI
                 </h1>
                 <p className="text-xs text-muted-foreground">
-                  Your RGPV exam preparation partner
+                  Your smart exam preparation partner
                 </p>
               </div>
             </div>
@@ -76,9 +99,27 @@ export default function Index() {
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
               Write Perfect Exam Answers
             </h2>
-            <p className="text-lg text-muted-foreground max-w-lg mx-auto">
-              Get structured, marks-oriented answers for DS, C/C++, DBMS, OS, and Discrete Maths
+            <p className="text-lg text-muted-foreground max-w-lg mx-auto mb-8">
+              Get structured, marks-oriented answers for any subject - Physics, Chemistry, Maths, Computer Science, and more.
             </p>
+
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
+              {FEATURES.map((feature, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-3 p-4 bg-card rounded-xl border border-border text-left"
+                >
+                  <div className="p-2 bg-secondary rounded-lg shrink-0">
+                    <feature.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground text-sm">{feature.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-0.5">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
@@ -153,7 +194,7 @@ export default function Index() {
       <footer className="border-t border-border/50 mt-auto">
         <div className="container max-w-4xl mx-auto px-4 py-6">
           <p className="text-center text-sm text-muted-foreground">
-            Built for Indian engineering students 🇮🇳 • Supports DS, C/C++, DBMS, OS, Discrete Maths
+            Works for all subjects: Physics, Chemistry, Maths, Computer Science, Biology & more 🎓
           </p>
         </div>
       </footer>

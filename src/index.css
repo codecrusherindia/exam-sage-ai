@@ -48,6 +48,10 @@
     --subject-dbms: 262 83% 58%;
     --subject-os: 340 82% 52%;
     --subject-maths: 24 95% 53%;
+    --subject-physics: 210 90% 50%;
+    --subject-chemistry: 160 84% 39%;
+    --subject-biology: 84 81% 44%;
+    --subject-networks: 280 70% 55%;
 
     /* Custom gradients */
     --gradient-primary: linear-gradient(135deg, hsl(234 89% 54%) 0%, hsl(250 84% 54%) 100%);
@@ -103,6 +107,10 @@
     --subject-dbms: 262 83% 68%;
     --subject-os: 340 82% 62%;
     --subject-maths: 24 95% 63%;
+    --subject-physics: 210 90% 60%;
+    --subject-chemistry: 160 84% 49%;
+    --subject-biology: 84 81% 54%;
+    --subject-networks: 280 70% 65%;
 
     --gradient-primary: linear-gradient(135deg, hsl(234 89% 64%) 0%, hsl(250 84% 64%) 100%);
     --gradient-hero: linear-gradient(180deg, hsl(234 89% 64% / 0.12) 0%, transparent 100%);
@@ -192,6 +200,30 @@
     background-color: hsl(var(--subject-maths) / 0.15);
     color: hsl(var(--subject-maths));
     border-color: hsl(var(--subject-maths) / 0.3);
+  }
+
+  .badge-physics {
+    background-color: hsl(var(--subject-physics) / 0.15);
+    color: hsl(var(--subject-physics));
+    border-color: hsl(var(--subject-physics) / 0.3);
+  }
+
+  .badge-chemistry {
+    background-color: hsl(var(--subject-chemistry) / 0.15);
+    color: hsl(var(--subject-chemistry));
+    border-color: hsl(var(--subject-chemistry) / 0.3);
+  }
+
+  .badge-biology {
+    background-color: hsl(var(--subject-biology) / 0.15);
+    color: hsl(var(--subject-biology));
+    border-color: hsl(var(--subject-biology) / 0.3);
+  }
+
+  .badge-networks {
+    background-color: hsl(var(--subject-networks) / 0.15);
+    color: hsl(var(--subject-networks));
+    border-color: hsl(var(--subject-networks) / 0.3);
   }
 
   /* Typing animation */

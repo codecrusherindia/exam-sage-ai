@@ -1,9 +1,7 @@
 import { cn } from "@/lib/utils";
 
-type Subject = "Data Structures" | "C/C++" | "DBMS" | "Operating Systems" | "Discrete Mathematics" | "General";
-
 interface SubjectBadgeProps {
-  subject: Subject | string;
+  subject: string;
   className?: string;
 }
 
@@ -13,6 +11,11 @@ const subjectConfig: Record<string, { badge: string; icon: string }> = {
   "DBMS": { badge: "badge-dbms", icon: "🗃️" },
   "Operating Systems": { badge: "badge-os", icon: "⚙️" },
   "Discrete Mathematics": { badge: "badge-maths", icon: "📐" },
+  "Physics": { badge: "badge-physics", icon: "⚛️" },
+  "Chemistry": { badge: "badge-chemistry", icon: "🧪" },
+  "Mathematics": { badge: "badge-maths", icon: "📊" },
+  "Biology": { badge: "badge-biology", icon: "🧬" },
+  "Computer Networks": { badge: "badge-networks", icon: "🌐" },
   "General": { badge: "bg-muted text-muted-foreground border-border", icon: "📚" },
 };
 

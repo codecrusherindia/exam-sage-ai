@@ -10,7 +10,12 @@ const SUBJECT_KEYWORDS: Record<string, string[]> = {
   "C/C++": ["pointer", "malloc", "calloc", "realloc", "free", "struct", "union", "typedef", "preprocessor", "macro", "header file", "iostream", "cin", "cout", "class", "object", "inheritance", "polymorphism", "encapsulation", "virtual", "template", "stl", "vector", "constructor", "destructor", "operator overloading", "friend function", "c programming", "c++"],
   "DBMS": ["sql", "query", "database", "table", "normalization", "1nf", "2nf", "3nf", "bcnf", "join", "primary key", "foreign key", "index", "transaction", "acid", "concurrency", "deadlock", "er diagram", "relational", "schema", "ddl", "dml", "dcl", "select", "insert", "update", "delete", "group by", "having", "aggregate"],
   "Operating Systems": ["process", "thread", "scheduling", "deadlock", "mutex", "semaphore", "memory management", "paging", "segmentation", "virtual memory", "page fault", "page replacement", "lru", "fifo", "fcfs", "sjf", "round robin", "priority", "context switch", "ipc", "critical section", "race condition", "fork", "exec", "file system", "cpu scheduling"],
-  "Discrete Mathematics": ["set theory", "relation", "function", "graph theory", "boolean", "logic", "proposition", "predicate", "quantifier", "proof", "induction", "recurrence", "combinatorics", "permutation", "combination", "probability", "lattice", "poset", "group", "ring", "field", "isomorphism", "homomorphism", "euler", "hamilton", "chromatic", "tree", "spanning tree"]
+  "Discrete Mathematics": ["set theory", "relation", "function", "graph theory", "boolean", "logic", "proposition", "predicate", "quantifier", "proof", "induction", "recurrence", "combinatorics", "permutation", "combination", "lattice", "poset", "group", "ring", "field", "isomorphism", "homomorphism", "euler", "hamilton", "chromatic", "spanning tree"],
+  "Physics": ["newton", "motion", "force", "velocity", "acceleration", "momentum", "energy", "work", "power", "thermodynamics", "heat", "temperature", "wave", "optics", "lens", "mirror", "reflection", "refraction", "electric", "magnetic", "current", "voltage", "resistance", "capacitor", "inductor", "electromagnetic", "quantum", "relativity", "gravity", "friction", "oscillation", "pendulum", "frequency", "wavelength"],
+  "Chemistry": ["atom", "molecule", "element", "compound", "reaction", "bond", "ionic", "covalent", "oxidation", "reduction", "acid", "base", "ph", "mole", "stoichiometry", "organic", "inorganic", "polymer", "catalyst", "equilibrium", "electrochemistry", "thermochemistry", "periodic table", "valence", "electron", "proton", "neutron", "isotope", "isomer", "hydrocarbon", "alkane", "alkene", "alkyne", "aldehyde", "ketone", "alcohol", "ester"],
+  "Mathematics": ["algebra", "calculus", "derivative", "integral", "differential", "equation", "matrix", "vector", "trigonometry", "geometry", "coordinate", "limit", "continuity", "polynomial", "quadratic", "linear", "exponential", "logarithm", "sequence", "series", "convergence", "divergence", "probability", "statistics", "mean", "median", "variance", "standard deviation", "hypothesis", "regression"],
+  "Biology": ["cell", "dna", "rna", "protein", "gene", "chromosome", "mitosis", "meiosis", "photosynthesis", "respiration", "enzyme", "metabolism", "organism", "evolution", "ecosystem", "biodiversity", "taxonomy", "anatomy", "physiology", "genetics", "heredity", "mutation", "virus", "bacteria", "immunity", "hormone", "neuron", "organ"],
+  "Computer Networks": ["tcp", "udp", "ip", "http", "https", "ftp", "dns", "dhcp", "router", "switch", "hub", "osi", "layer", "protocol", "packet", "bandwidth", "latency", "firewall", "vpn", "lan", "wan", "ethernet", "wifi", "socket", "port", "subnet", "gateway", "arp", "icmp", "ssl", "tls"]
 };
 
 function detectSubject(question: string): string {
@@ -35,18 +40,19 @@ function detectSubject(question: string): string {
 }
 
 function getSystemPrompt(mode: "exam" | "simple"): string {
-  const basePrompt = `You are an experienced Indian engineering exam evaluator and teacher with 15+ years of experience in RGPV and similar university patterns. You help students write perfect exam answers.
+  const basePrompt = `You are an experienced exam evaluator and teacher with 15+ years of experience across various university patterns worldwide. You help students write perfect exam answers for any subject.
 
 CRITICAL RULES:
 1. Structure answers exactly as expected in university exams
 2. Use proper headings, subheadings, and numbered points
-3. Include diagrams using ASCII art when helpful (especially for DS, OS concepts)
+3. Include diagrams using ASCII art when helpful (especially for technical concepts)
 4. Focus on marks-oriented writing - cover all expected points
 5. Be concise but complete - no unnecessary fluff
 6. Use bullet points for definitions and short answers
 7. For numerical problems, show step-by-step solutions
 8. Highlight key terms that examiners look for
-9. Include examples where appropriate`;
+9. Include examples where appropriate
+10. Adapt your answer style to the subject (scientific notation for Physics/Chemistry, formal proofs for Math, etc.)`;
 
   if (mode === "exam") {
     return `${basePrompt}
