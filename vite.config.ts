@@ -12,8 +12,11 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  // Add this preview section to allow Render's host
+  // Updated preview section for Render deployment
   preview: {
+    host: "0.0.0.0",
+    port: 8080, // Matches the port in your package.json script
+    strictPort: true,
     allowedHosts: ["exam-sage-ai.onrender.com"],
   },
   plugins: [
